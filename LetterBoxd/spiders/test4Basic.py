@@ -11,12 +11,9 @@ class Test4basicSpider(scrapy.Spider):
     script1 = '''
     function main(splash, args)
         splash.private_mode_enabled = false
-        url = args.url
         assert(splash:go(args.url))
         assert(splash:wait(0.5))
-        return {
-            html = splash:html()
-        }
+        return splash:html()
     end
     '''
  
