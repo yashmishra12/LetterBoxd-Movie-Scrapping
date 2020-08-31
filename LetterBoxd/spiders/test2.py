@@ -1,3 +1,6 @@
+"""
+test2 spider crawls using Splash but it is not necessary
+"""
 import scrapy
 from scrapy_splash import SplashRequest
 import re

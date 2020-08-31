@@ -1,3 +1,6 @@
+"""
+test2B spider crawls using Splash 
+"""
 import scrapy
 from scrapy_splash import SplashRequest
 import re
@@ -24,8 +27,8 @@ class Test2bSpider(scrapy.Spider):
         
 
     def parse(self, response):
-        temp = response.css("li.listitem.poster-container")
-        print("MOVIE----------------------------------------------",temp)
+        # temp = response.css("li.listitem.poster-container")
+        # print("MOVIE----------------------------------------------",temp)
         for movie in response.xpath('//li[@class="listitem poster-container"]/div/div/a[@class="frame"]/@href'):
 
             # print("MOVIE----------------------------------------------",movie)
