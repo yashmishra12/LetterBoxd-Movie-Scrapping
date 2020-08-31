@@ -1,6 +1,10 @@
+"""
+test1 spider crawls from Ajax URL which does not need JavaScript
+"""
 import scrapy
 from scrapy_splash import SplashRequest
 import re
+from anaconda_navigator.widgets.dialogs import splash
 
 
 class Test1Spider(scrapy.Spider):
@@ -16,13 +20,14 @@ class Test1Spider(scrapy.Spider):
         return splash:html()
     end
     '''
+    pagination = 1
 
     def start_requests(self):
-        yield SplashRequest(url="https://letterboxd.com/films/ajax/popular/size/small/", callback=self.parse, endpoint="execute", args={
-            'lua_source': self.script
-        })
+        yield scrapy.Request(url=f"https://letterboxd.com/films/ajax/popular/size/small/page/1/", callback=self.parse)
+        
 
     def parse(self, response):
+        url = response.url
         for movie in response.xpath('//a[@class="frame"]/@href'):
             
             movieName = movie.get().split("/")
@@ -32,6 +37,14 @@ class Test1Spider(scrapy.Spider):
                 url=f'https://letterboxd.com/csi/film/{movieName}/rating-histogram/',
                 callback=self.parse_movie_rating,
                 meta = {'movieName': movieName}
+            )
+
+
+        if (self.pagination < 100):
+            self.pagination += 1
+            yield scrapy.Request(
+                url=f"https://letterboxd.com/films/ajax/popular/size/small/page/{self.pagination}/",    
+                callback=self.parse
             )
 
     
