@@ -24,7 +24,7 @@ class Test4basicSpider(scrapy.Spider):
  
     def parse(self, response):
         for movie in response.xpath("//li[@class='listitem poster-container']"):
-            movie_url = movie.xpath("(//a[@class='frame'])[1]/@href").get()
+            movie_url = movie.xpath("(.//a[@class='frame'])[1]/@href").get()
             yield scrapy.Request(
                 url=f'https://letterboxd.com{movie_url}',
                 callback=self.parse_movie,

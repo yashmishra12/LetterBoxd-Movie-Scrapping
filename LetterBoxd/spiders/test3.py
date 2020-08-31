@@ -13,9 +13,7 @@ class Test3Spider(scrapy.Spider):
         splash.private_mode_enabled = false
         assert(splash:go(args.url))
         assert(splash:wait(0.5))
-        return {
-            html = splash:html()
-        }
+        return splash:html()
     end
     '''
 

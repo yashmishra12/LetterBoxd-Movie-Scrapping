@@ -1,34 +1,61 @@
 import scrapy
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy_splash import SplashRequest
+import re
 
 
 class Test1Spider(scrapy.Spider):
     name = 'test1'
     allowed_domains = ['letterboxd.com']
-    
-    user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'
+    #start_urls = ['https://letterboxd.com/films/popular/size/small/page/1/']
+
+    script = '''
+    function main(splash, args)
+        splash.private_mode_enabled = false
+        assert(splash:go(args.url))
+        assert(splash:wait(0.5))
+        return splash:html()
+    end
+    '''
 
     def start_requests(self):
-        yield scrapy.Request(url = 'https://letterboxd.com/films/popular/size/small/page/1/', headers = {
-            'User-Agent': self.user_agent
+        yield SplashRequest(url="https://letterboxd.com/films/ajax/popular/size/small/", callback=self.parse, endpoint="execute", args={
+            'lua_source': self.script
         })
 
-    rules = (
-        Rule(LinkExtractor(restrict_xpaths=('//a[@class="frame has-menu"]')), callback='parse_item', follow=True, process_request='set_user_agent'),
-        # Rule(LinkExtractor(restrict_xpaths=('(//a[@class="lister-page-next next-page"])[1]')), process_request = 'set_user_agent' )
-    )
-
-    def set_user_agent (self, request, spider):
-        request.headers['User-Agent'] = self.user_agent
-        return request
-
     def parse(self, response):
+        for movie in response.xpath('//a[@class="frame"]/@href'):
+            
+            movieName = movie.get().split("/")
+            movieName = movieName[2]
+ 
+            yield response.follow(
+                url=f'https://letterboxd.com/csi/film/{movieName}/rating-histogram/',
+                callback=self.parse_movie_rating,
+                meta = {'movieName': movieName}
+            )
+
+    
+    def parse_movie_rating(self, response):
+        movieName = response.request.meta['movieName']
+        rating = response.xpath('//a[contains(@class,"tooltip display-rating")]/text()').get()
+        yield response.follow(url = f"https://letterboxd.com/film/{movieName}/", callback = self.parse_movies, meta = {'rating':rating})
+      
+      
+    def parse_movies(self, response):
+        
+        rating = response.request.meta['rating']
+
+        temp = ""
+        duration = response.xpath('(//p[@class="text-link text-footer"]/text())[1]').get()
+        x = re.findall("\d", duration)
+        duration = temp.join(x)
+
         yield {
             'title' : response.xpath('//section[@id="featured-film-header"]/h1/text()').get(),
             'year' : response.xpath('//small[@class="number"]/a/text()').get(),
-            'duration' : response.xpath('( //p[@class="text-link text-footer"]/text())[1]').get(),
-            'genre' : response.xpath('//div[@class="text-sluglist capitalize"]/p/a/text()').get(),
-            'rating' : response.xpath('//a[contains(@class, "tooltip display-rating")]/text()').get(),
+            'duration' : duration,
+            'genre' : response.xpath('//div[@class="text-sluglist capitalize"]/p/a/text()').getall(),
+            'rating': rating,
             'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get()  
-        }
+        }    
+
