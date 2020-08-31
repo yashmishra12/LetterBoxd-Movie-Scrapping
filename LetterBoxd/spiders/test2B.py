@@ -1,16 +1,10 @@
-"""
-test1 spider crawls from Ajax URL which does not need JavaScript
-"""
 import scrapy
 from scrapy_splash import SplashRequest
 import re
 
-
-
-class Test1Spider(scrapy.Spider):
-    name = 'test1'
+class Test2bSpider(scrapy.Spider):
+    name = 'test2B'
     allowed_domains = ['letterboxd.com']
-    #start_urls = ['https://letterboxd.com/films/popular/size/small/page/1/']
 
     script = '''
     function main(splash, args)
@@ -20,16 +14,21 @@ class Test1Spider(scrapy.Spider):
         return splash:html()
     end
     '''
+
     pagination = 1
 
     def start_requests(self):
-        yield scrapy.Request(url=f"https://letterboxd.com/films/ajax/popular/size/small/page/1/", callback=self.parse)
+        yield SplashRequest(url="https://letterboxd.com/films/popular/size/small/page/1/", callback=self.parse, endpoint="execute", args={
+            'lua_source': self.script
+        })
         
 
     def parse(self, response):
-        url = response.url
-        for movie in response.xpath('//a[@class="frame"]/@href'):
-            
+        temp = response.css("li.listitem.poster-container")
+        print("MOVIE----------------------------------------------",temp)
+        for movie in response.xpath('//li[@class="listitem poster-container"]/div/div/a[@class="frame"]/@href'):
+
+            # print("MOVIE----------------------------------------------",movie)
             movieName = movie.get().split("/")
             movieName = movieName[2]
  
@@ -40,11 +39,12 @@ class Test1Spider(scrapy.Spider):
             )
 
 
-        if (self.pagination < 100):
+        if (self.pagination < 3):
             self.pagination += 1
-            yield scrapy.Request(
-                url=f"https://letterboxd.com/films/ajax/popular/size/small/page/{self.pagination}/",    
-                callback=self.parse
+            yield SplashRequest(
+                url=f"https://letterboxd.com/films/popular/size/small/page/{self.pagination}/",    
+                callback=self.parse,
+                endpoint="execute", args={'lua_source': self.script }
             )
 
     
@@ -70,5 +70,4 @@ class Test1Spider(scrapy.Spider):
             'genre' : response.xpath('//div[@class="text-sluglist capitalize"]/p/a/text()').getall(),
             'rating': rating,
             'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get()  
-        }    
-
+        } 
