@@ -27,7 +27,7 @@ class Test1Spider(scrapy.Spider):
         
 
     def parse(self, response):
-        url = response.url
+        # url = response.url
         for movie in response.xpath('//a[@class="frame"]/@href'):
             
             movieName = movie.get().split("/")
@@ -40,7 +40,7 @@ class Test1Spider(scrapy.Spider):
             )
 
 
-        if (self.pagination < 100):
+        if (self.pagination < 8137):
             self.pagination += 1
             yield scrapy.Request(
                 url=f"https://letterboxd.com/films/ajax/popular/size/small/page/{self.pagination}/",    
@@ -51,12 +51,20 @@ class Test1Spider(scrapy.Spider):
     def parse_movie_rating(self, response):
         movieName = response.request.meta['movieName']
         rating = response.xpath('//a[contains(@class,"tooltip display-rating")]/text()').get()
-        yield response.follow(url = f"https://letterboxd.com/film/{movieName}/", callback = self.parse_movies, meta = {'rating':rating})
+        # use extract() instead of get() to get the complete element with its attributes as STRING. Because custom attributes can have different
+        # name seen by scrapy and seen by inspect element by us. 
+        
+        # viewers = response.css("a.tooltip.display-rating ::attr(title)").get()  #THIS IS JUST THE CSS VERSION OF BELOW
+
+        viewers = response.xpath('//a[contains(@class,"tooltip display-rating")]/@title').get()
+
+        yield response.follow(url = f"https://letterboxd.com/film/{movieName}/", callback = self.parse_movies, meta = {'rating':rating, 'viewers': viewers})
       
       
     def parse_movies(self, response):
         
         rating = response.request.meta['rating']
+        viewers = response.request.meta['viewers']
 
         temp = ""
         duration = response.xpath('(//p[@class="text-link text-footer"]/text())[1]').get()
@@ -69,6 +77,7 @@ class Test1Spider(scrapy.Spider):
             'duration' : duration,
             'genre' : response.xpath('//div[@class="text-sluglist capitalize"]/p/a/text()').getall(),
             'rating': rating,
-            'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get()  
+            'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get(),
+            'viewers': viewers    
         }    
 

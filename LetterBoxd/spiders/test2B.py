@@ -27,11 +27,11 @@ class Test2bSpider(scrapy.Spider):
         
 
     def parse(self, response):
-        # temp = response.css("li.listitem.poster-container")
-        # print("MOVIE----------------------------------------------",temp)
+        temp = response.css("li.listitem.poster-container")
+        print("MOVIE----------------------------------------------",temp)
         for movie in response.xpath('//li[@class="listitem poster-container"]/div/div/a[@class="frame"]/@href'):
 
-            # print("MOVIE----------------------------------------------",movie)
+            print("MOVIE----------------------------------------------",movie)
             movieName = movie.get().split("/")
             movieName = movieName[2]
  
@@ -42,7 +42,7 @@ class Test2bSpider(scrapy.Spider):
             )
 
 
-        if (self.pagination < 3):
+        if (self.pagination < 2): #8137
             self.pagination += 1
             yield SplashRequest(
                 url=f"https://letterboxd.com/films/popular/size/small/page/{self.pagination}/",    
@@ -54,12 +54,14 @@ class Test2bSpider(scrapy.Spider):
     def parse_movie_rating(self, response):
         movieName = response.request.meta['movieName']
         rating = response.xpath('//a[contains(@class,"tooltip display-rating")]/text()').get()
-        yield response.follow(url = f"https://letterboxd.com/film/{movieName}/", callback = self.parse_movies, meta = {'rating':rating})
+        viewers = response.xpath("/html/body/div[2]/div/div/div[2]/aside/section[2]/span/a/@data-original-title").get()
+        yield response.follow(url = f"https://letterboxd.com/film/{movieName}/", callback = self.parse_movies, meta = {'rating':rating, 'viewers': viewers})
       
       
     def parse_movies(self, response):
         
         rating = response.request.meta['rating']
+        viewers = response.request.meta['viewers']
 
         temp = ""
         duration = response.xpath('(//p[@class="text-link text-footer"]/text())[1]').get()
@@ -72,5 +74,6 @@ class Test2bSpider(scrapy.Spider):
             'duration' : duration,
             'genre' : response.xpath('//div[@class="text-sluglist capitalize"]/p/a/text()').getall(),
             'rating': rating,
-            'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get()  
+            'language': response.xpath('((//span[contains(text(), "Language")]/parent::node()/following::node())/p/a/text())[1]').get(),
+            'viewers': viewers  
         } 

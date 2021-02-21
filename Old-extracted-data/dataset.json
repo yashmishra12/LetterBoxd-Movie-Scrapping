@@ -1,0 +1,577 @@
+[{
+        "title": "Django Unchained",
+        "year": "2012",
+        "duration": "165",
+        "genre": ["western", "drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Parasite",
+        "year": "2019",
+        "duration": "133",
+        "genre": ["comedy", "drama", "thriller"],
+        "rating": "4.6",
+        "language": "Korean"
+    },
+    {
+        "title": "1917",
+        "year": "2019",
+        "duration": "119",
+        "genre": ["war", "drama", "action", "history"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Hereditary",
+        "year": "2018",
+        "duration": "127",
+        "genre": ["thriller", "horror", "mystery"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Dunkirk",
+        "year": "2017",
+        "duration": "107",
+        "genre": ["war", "drama", "action"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Eternal Sunshine of the Spotless Mind",
+        "year": "2004",
+        "duration": "108",
+        "genre": ["drama", "romance", "science fiction"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Spirited Away",
+        "year": "2001",
+        "duration": "125",
+        "genre": ["fantasy", "animation", "family"],
+        "rating": "4.5",
+        "language": "Japanese"
+    },
+    {
+        "title": "Little Women",
+        "year": "2019",
+        "duration": "135",
+        "genre": ["drama", "romance"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Moonlight",
+        "year": "2016",
+        "duration": "111",
+        "genre": ["drama"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Gone Girl",
+        "year": "2014",
+        "duration": "149",
+        "genre": ["drama", "thriller", "mystery"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Guardians of the Galaxy Vol. 2",
+        "year": "2017",
+        "duration": "137",
+        "genre": ["comedy", "adventure", "science fiction", "action"],
+        "rating": "3.6",
+        "language": "English"
+    },
+    {
+        "title": "The Lighthouse",
+        "year": "2019",
+        "duration": "109",
+        "genre": ["thriller", "fantasy", "drama", "horror"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Star Wars: The Force Awakens",
+        "year": "2015",
+        "duration": "136",
+        "genre": ["science fiction", "action", "adventure", "fantasy"],
+        "rating": "3.6",
+        "language": "English"
+    },
+    {
+        "title": "Scott Pilgrim vs. the World",
+        "year": "2010",
+        "duration": "112",
+        "genre": ["romance", "comedy", "action", "fantasy", "music"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Portrait of a Lady on Fire",
+        "year": "2019",
+        "duration": "120",
+        "genre": ["drama", "romance"],
+        "rating": "4.4",
+        "language": "French"
+    },
+    {
+        "title": "Marriage Story",
+        "year": "2019",
+        "duration": "137",
+        "genre": ["drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "It",
+        "year": "2017",
+        "duration": "135",
+        "genre": ["horror"],
+        "rating": "3.5",
+        "language": "English"
+    },
+    {
+        "title": "Call Me by Your Name",
+        "year": "2017",
+        "duration": "132",
+        "genre": ["drama", "romance"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Guardians of the Galaxy",
+        "year": "2014",
+        "duration": "121",
+        "genre": ["action", "science fiction", "adventure"],
+        "rating": "3.8",
+        "language": "English"
+    },
+    {
+        "title": "The Matrix",
+        "year": "1999",
+        "duration": "136",
+        "genre": ["science fiction", "action"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "The Avengers",
+        "year": "2012",
+        "duration": "143",
+        "genre": ["science fiction", "adventure", "action"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "Kill Bill: Vol. 1",
+        "year": "2003",
+        "duration": "111",
+        "genre": ["action", "crime"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "The Favourite",
+        "year": "2018",
+        "duration": "120",
+        "genre": ["comedy", "history", "drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "The Empire Strikes Back",
+        "year": "1980",
+        "duration": "124",
+        "genre": ["science fiction", "adventure", "action"],
+        "rating": "4.4",
+        "language": "English"
+    },
+    {
+        "title": "Forrest Gump",
+        "year": "1994",
+        "duration": "142",
+        "genre": ["romance", "comedy", "drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Ex Machina",
+        "year": "2014",
+        "duration": "108",
+        "genre": ["drama", "science fiction"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Taxi Driver",
+        "year": "1976",
+        "duration": "114",
+        "genre": ["drama", "crime"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Coco",
+        "year": "2017",
+        "duration": "105",
+        "genre": ["fantasy", "family", "adventure", "animation", "comedy"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "BlacKkKlansman",
+        "year": "2018",
+        "duration": "135",
+        "genre": ["history", "crime", "comedy", "drama"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Se7en",
+        "year": "1995",
+        "duration": "127",
+        "genre": ["thriller", "crime", "mystery"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Birdman or (The Unexpected Virtue of Ignorance)",
+        "year": "2014",
+        "duration": "120",
+        "genre": ["comedy", "drama"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Inside Out",
+        "year": "2015",
+        "duration": "95",
+        "genre": ["comedy", "family", "drama", "animation"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Star Wars",
+        "year": "1977",
+        "duration": "121",
+        "genre": ["adventure", "action", "science fiction"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "A Quiet Place",
+        "year": "2018",
+        "duration": "91",
+        "genre": ["science fiction", "drama", "horror"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "The Godfather",
+        "year": "1972",
+        "duration": "175",
+        "genre": ["crime", "drama"],
+        "rating": "4.6",
+        "language": "English"
+    },
+    {
+        "title": "Star Wars: The Last Jedi",
+        "year": "2017",
+        "duration": "152",
+        "genre": ["science fiction", "adventure", "action"],
+        "rating": "3.3",
+        "language": "English"
+    },
+    {
+        "title": "Us",
+        "year": "2019",
+        "duration": "116",
+        "genre": ["horror", "mystery", "thriller"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "Drive",
+        "year": "2011",
+        "duration": "100",
+        "genre": ["thriller", "drama", "crime"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Spider-Man: Homecoming",
+        "year": "2017",
+        "duration": "133",
+        "genre": ["science fiction", "action", "adventure", "drama"],
+        "rating": "3.6",
+        "language": "English"
+    },
+    {
+        "title": "The Shape of Water",
+        "year": "2017",
+        "duration": "123",
+        "genre": ["drama", "romance", "fantasy"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "The Silence of the Lambs",
+        "year": "1991",
+        "duration": "119",
+        "genre": ["thriller", "horror", "drama", "crime"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Deadpool",
+        "year": "2016",
+        "duration": "108",
+        "genre": ["comedy", "action", "adventure"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "Blade Runner 2049",
+        "year": "2017",
+        "duration": "163",
+        "genre": ["science fiction", "drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "The Social Network",
+        "year": "2010",
+        "duration": "121",
+        "genre": ["drama"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Thor: Ragnarok",
+        "year": "2017",
+        "duration": "131",
+        "genre": ["adventure", "comedy", "action", "fantasy"],
+        "rating": "3.8",
+        "language": "English"
+    },
+    {
+        "title": "The Shining",
+        "year": "1980",
+        "duration": "144",
+        "genre": ["horror", "thriller"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Arrival",
+        "year": "2016",
+        "duration": "116",
+        "genre": ["drama", "science fiction", "mystery"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Uncut Gems",
+        "year": "2019",
+        "duration": "136",
+        "genre": ["drama", "comedy", "crime", "thriller"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Whiplash",
+        "year": "2014",
+        "duration": "107",
+        "genre": ["drama", "music"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Inglourious Basterds",
+        "year": "2009",
+        "duration": "153",
+        "genre": ["thriller", "drama", "action", "war"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "Her",
+        "year": "2013",
+        "duration": "126",
+        "genre": ["romance", "science fiction", "drama"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "The Wolf of Wall Street",
+        "year": "2013",
+        "duration": "180",
+        "genre": ["comedy", "drama", "crime"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Jojo Rabbit",
+        "year": "2019",
+        "duration": "108",
+        "genre": ["comedy", "drama", "war"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Avengers: Infinity War",
+        "year": "2018",
+        "duration": "149",
+        "genre": ["adventure", "action", "science fiction"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Interstellar",
+        "year": "2014",
+        "duration": "169",
+        "genre": ["science fiction", "drama", "adventure"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Black Panther",
+        "year": "2018",
+        "duration": "134",
+        "genre": ["fantasy", "action", "adventure", "science fiction"],
+        "rating": "3.7",
+        "language": "English"
+    },
+    {
+        "title": "Mad Max: Fury Road",
+        "year": "2015",
+        "duration": "121",
+        "genre": ["adventure", "science fiction", "action"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Midsommar",
+        "year": "2019",
+        "duration": "148",
+        "genre": ["drama", "horror", "mystery"],
+        "rating": "3.8",
+        "language": "English"
+    },
+    {
+        "title": "Fight Club",
+        "year": "1999",
+        "duration": "139",
+        "genre": ["drama"],
+        "rating": "4.3",
+        "language": "English"
+    },
+    {
+        "title": "La La Land",
+        "year": "2016",
+        "duration": "129",
+        "genre": ["music", "drama", "romance", "comedy"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "The Dark Knight",
+        "year": "2008",
+        "duration": "152",
+        "genre": ["action", "thriller", "drama", "crime"],
+        "rating": "4.4",
+        "language": "English"
+    },
+    {
+        "title": "The Grand Budapest Hotel",
+        "year": "2014",
+        "duration": "100",
+        "genre": ["comedy", "drama"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Avengers: Endgame",
+        "year": "2019",
+        "duration": "181",
+        "genre": ["adventure", "science fiction", "action"],
+        "rating": "3.9",
+        "language": "English"
+    },
+    {
+        "title": "Baby Driver",
+        "year": "2017",
+        "duration": "113",
+        "genre": ["crime", "action"],
+        "rating": "3.8",
+        "language": "English"
+    },
+    {
+        "title": "Spider-Man: Into the Spider-Verse",
+        "year": "2018",
+        "duration": "117",
+        "genre": ["action", "adventure", "animation", "science fiction", "comedy"],
+        "rating": "4.4",
+        "language": "English"
+    },
+    {
+        "title": "Inception",
+        "year": "2010",
+        "duration": "148",
+        "genre": ["science fiction", "action", "adventure"],
+        "rating": "4.2",
+        "language": "English"
+    },
+    {
+        "title": "Knives Out",
+        "year": "2019",
+        "duration": "131",
+        "genre": ["mystery", "thriller", "comedy", "drama", "crime"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Pulp Fiction",
+        "year": "1994",
+        "duration": "154",
+        "genre": ["crime", "thriller"],
+        "rating": "4.4",
+        "language": "English"
+    },
+    {
+        "title": "Once Upon a Time… in Hollywood",
+        "year": "2019",
+        "duration": "162",
+        "genre": ["thriller", "comedy", "drama"],
+        "rating": "3.8",
+        "language": "English"
+    },
+    {
+        "title": "Get Out",
+        "year": "2017",
+        "duration": "104",
+        "genre": ["thriller", "horror", "mystery"],
+        "rating": "4.1",
+        "language": "English"
+    },
+    {
+        "title": "Lady Bird",
+        "year": "2017",
+        "duration": "94",
+        "genre": ["drama", "comedy"],
+        "rating": "4.0",
+        "language": "English"
+    },
+    {
+        "title": "Joker",
+        "year": "2019",
+        "duration": "122",
+        "genre": ["crime", "drama", "thriller"],
+        "rating": "3.8",
+        "language": "English"
+    }
+]
